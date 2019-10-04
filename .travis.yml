@@ -1,0 +1,13 @@
+language: java
+sudo: true
+install:
+  - mvn install -DskipTests=true -Dmaven.javadoc.skip=true
+addons:
+  sonarcloud:
+    organization: "nbcigar"
+    token:
+      secure: 1b397ddd6a47f02b52d0ba64e16769e2ec2b3bc3
+script:
+  # other script steps might be done before running the actual analysis
+  - sonar-scanner
+#  travis encrypt 1b397ddd6a47f02b52d0ba64e16769e2ec2b3bc3
